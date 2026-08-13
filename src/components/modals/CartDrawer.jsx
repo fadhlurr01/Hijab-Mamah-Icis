@@ -9,7 +9,8 @@ export default function CartDrawer({
   cartItems, 
   onUpdateQuantity, 
   onRemoveItem,
-  onClearCart
+  onClearCart,
+  onSelectCategory
 }) {
   if (!isOpen) return null;
 
@@ -19,6 +20,20 @@ export default function CartDrawer({
 
   const formatPrice = (val) => {
     return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(val);
+  };
+
+  const handleStartShopping = () => {
+    onClose();
+    if (onSelectCategory) {
+      onSelectCategory('ALL');
+    } else {
+      const el = document.getElementById('collection');
+      if (el) {
+        const yOffset = -70;
+        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }
   };
 
   const handleCheckoutWhatsApp = () => {
@@ -108,7 +123,7 @@ export default function CartDrawer({
                 <h3 className="font-serif text-lg text-[#1C1C1C]">Your Shopping Bag is empty</h3>
                 <p className="text-xs font-sans text-[#8A8178]">Jelajahi koleksi hijab Mamah Icis dan tambahkan item favorit Anda.</p>
                 <button 
-                  onClick={onClose}
+                  onClick={handleStartShopping}
                   className="btn-luxury text-xs px-6 py-2.5 mt-2"
                 >
                   Start Shopping
@@ -153,7 +168,13 @@ export default function CartDrawer({
                       {/* Quantity Adjuster */}
                       <div className="flex items-center border border-[#E8E2D9] bg-[#F8F6F2]">
                         <button 
-                          onClick={() => onUpdateQuantity(item, Math.max(1, item.quantity - 1))}
+                          onClick={() => {
+                            if (item.quantity <= 1) {
+                              onRemoveItem(item);
+                            } else {
+                              onUpdateQuantity(item, item.quantity - 1);
+                            }
+                          }}
                           className="px-2 py-0.5 text-xs text-[#1C1C1C] hover:bg-[#D8C7B5]"
                         >
                           -

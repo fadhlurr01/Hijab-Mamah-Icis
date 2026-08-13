@@ -38,7 +38,7 @@ export default function App() {
   const [wishlistIds, setWishlistIds] = useState([]);
 
   // Handlers
-  const handleSelectCategory = (category) => {
+  const handleSelectCategory = (category = 'ALL') => {
     setSelectedCategory(category);
     const el = document.getElementById('collection');
     if (el) {
@@ -79,6 +79,10 @@ export default function App() {
   };
 
   const handleUpdateCartQuantity = (targetItem, newQty) => {
+    if (newQty <= 0) {
+      handleRemoveCartItem(targetItem);
+      return;
+    }
     setCartItems((prev) => 
       prev.map((item) => {
         if (
@@ -201,6 +205,7 @@ export default function App() {
         onUpdateQuantity={handleUpdateCartQuantity}
         onRemoveItem={handleRemoveCartItem}
         onClearCart={() => setCartItems([])}
+        onSelectCategory={handleSelectCategory}
       />
 
       <WishlistDrawer 
@@ -210,6 +215,7 @@ export default function App() {
         onRemoveWishlist={handleToggleWishlist}
         onAddToCart={handleAddToCart}
         onSelectProduct={(p) => setSelectedProduct(p)}
+        onSelectCategory={handleSelectCategory}
       />
 
       <SearchModal 

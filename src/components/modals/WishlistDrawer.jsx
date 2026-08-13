@@ -8,12 +8,27 @@ export default function WishlistDrawer({
   wishlistProducts, 
   onRemoveWishlist, 
   onAddToCart,
-  onSelectProduct 
+  onSelectProduct,
+  onSelectCategory 
 }) {
   if (!isOpen) return null;
 
   const formatPrice = (val) => {
     return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(val);
+  };
+
+  const handleExploreCollection = () => {
+    onClose();
+    if (onSelectCategory) {
+      onSelectCategory('ALL');
+    } else {
+      const el = document.getElementById('collection');
+      if (el) {
+        const yOffset = -70;
+        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }
   };
 
   return (
@@ -30,7 +45,7 @@ export default function WishlistDrawer({
           {/* Header */}
           <div className="p-6 bg-white border-b border-[#E8E2D9] flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <Heart size={20} className="text-[#B08D67]" fill="#B08D67" />
+              <Heart size={20} className="text-[#B08D67]" fill={wishlistProducts.length > 0 ? "#B08D67" : "none"} />
               <h2 className="font-serif text-xl text-[#1C1C1C] uppercase font-normal tracking-wider">
                 Saved Wishlist ({wishlistProducts.length})
               </h2>
@@ -51,7 +66,7 @@ export default function WishlistDrawer({
                 <h3 className="font-serif text-lg text-[#1C1C1C]">Your Wishlist is empty</h3>
                 <p className="text-xs font-sans text-[#8A8178]">Simpan koleksi impian Anda dengan menekan ikon hati pada produk.</p>
                 <button 
-                  onClick={onClose}
+                  onClick={handleExploreCollection}
                   className="btn-luxury text-xs px-6 py-2.5 mt-2"
                 >
                   Explore Collection
@@ -124,7 +139,7 @@ export default function WishlistDrawer({
           {wishlistProducts.length > 0 && (
             <div className="p-6 bg-white border-t border-[#E8E2D9]">
               <button 
-                onClick={onClose}
+                onClick={handleExploreCollection}
                 className="btn-luxury-outline w-full text-xs py-3 flex items-center justify-center gap-2"
               >
                 <span>Continue Shopping</span>
