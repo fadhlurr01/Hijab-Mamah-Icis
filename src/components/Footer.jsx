@@ -1,6 +1,7 @@
 import React from 'react';
 import { Send, MapPin, Phone, ChevronRight } from 'lucide-react';
 import { InstagramIcon, ShopeeIcon } from './Icons';
+import BrandLogo from './BrandLogo';
 import { shopeeStoreUrl, whatsAppNumber, whatsAppDisplayNumber } from '../data/products';
 
 export default function Footer({ onSelectCategory }) {
@@ -20,15 +21,18 @@ export default function Footer({ onSelectCategory }) {
     <footer className="bg-[#1C1C1C] text-white pt-20 pb-10 border-t border-[#B08D67]/30">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-white/10">
         
-        {/* Brand Overview Column */}
+        {/* Brand Overview Column with Signature Emblem */}
         <div className="lg:col-span-2 space-y-5">
-          <div className="space-y-1">
-            <span className="font-serif text-3xl tracking-[0.25em] uppercase font-light text-white block">
-              Mamah Icis
-            </span>
-            <span className="text-[10px] tracking-[0.35em] uppercase font-sans text-[#D8C7B5]">
-              Jakarta — Modest Workwear
-            </span>
+          <div className="flex items-center space-x-3">
+            <BrandLogo size={42} isDark={true} />
+            <div className="space-y-0.5">
+              <span className="font-serif text-3xl tracking-[0.25em] uppercase font-light text-white block leading-none">
+                Mamah Icis
+              </span>
+              <span className="text-[10px] tracking-[0.35em] uppercase font-sans text-[#D8C7B5] block">
+                Jakarta — Modest Workwear
+              </span>
+            </div>
           </div>
 
           <p className="text-xs font-sans text-white/70 max-w-sm leading-relaxed font-light">

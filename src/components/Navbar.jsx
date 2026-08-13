@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Heart, ShoppingBag, Menu, X } from 'lucide-react';
+import BrandLogo from './BrandLogo';
 
 export default function Navbar({ 
   wishlistCount, 
@@ -88,19 +89,22 @@ export default function Navbar({
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* Brand Logo */}
+        {/* Signature Brand Logo & Title */}
         <div 
           onClick={() => handleNavClick({ targetId: 'hero' })}
-          className="cursor-pointer group flex flex-col items-center lg:items-start"
+          className="cursor-pointer group flex items-center space-x-3"
         >
-          <span className="font-serif text-2xl lg:text-3xl tracking-[0.25em] font-medium uppercase transition-opacity duration-300 group-hover:opacity-80">
-            Mamah Icis
-          </span>
-          <span className={`text-[9px] tracking-[0.35em] uppercase font-sans font-medium transition-colors ${
-            isTransparentHero ? 'text-white/70' : 'text-[#8A8178]'
-          }`}>
-            Jakarta — Modest Fashion
-          </span>
+          <BrandLogo size={36} isDark={isTransparentHero} className="transition-transform duration-300 group-hover:scale-105" />
+          <div className="flex flex-col items-start">
+            <span className="font-serif text-2xl lg:text-3xl tracking-[0.2em] font-medium uppercase transition-opacity duration-300 group-hover:opacity-80 leading-none">
+              Mamah Icis
+            </span>
+            <span className={`text-[9px] tracking-[0.35em] uppercase font-sans font-medium transition-colors mt-1 ${
+              isTransparentHero ? 'text-white/70' : 'text-[#8A8178]'
+            }`}>
+              Jakarta — Modest Fashion
+            </span>
+          </div>
         </div>
 
         {/* Desktop Navigation Links */}
