@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Tag, Gift, Clock } from 'lucide-react';
 import { AnimatedScene } from '../AnimatedScene';
+import { getImageUrl } from '../../utils/image';
 
 export default function PromoSection({ onShopSale }) {
   return (
@@ -10,7 +11,7 @@ export default function PromoSection({ onShopSale }) {
         {/* Subtle Background Pattern */}
         <div className="absolute right-0 top-0 bottom-0 w-full lg:w-1/2 opacity-20 pointer-events-none">
           <img 
-            src="/images/oleba_batik.png" 
+            src={getImageUrl('/images/oleba_batik.png')} 
             alt="Mamah Icis Special Privilege"
             className="w-full h-full object-cover object-top"
           />

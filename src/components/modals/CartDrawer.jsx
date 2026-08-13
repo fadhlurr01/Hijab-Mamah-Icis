@@ -1,6 +1,7 @@
 import React from 'react';
 import { X, Trash2, ShoppingBag, Send, ArrowRight, ShieldCheck, Truck } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { getImageUrl } from '../../utils/image';
 
 export default function CartDrawer({ 
   isOpen, 
@@ -121,9 +122,9 @@ export default function CartDrawer({
                 >
                   {/* Thumbnail */}
                   <img 
-                    src={item.images[0]} 
+                    src={getImageUrl(item.images[0])} 
                     alt={item.name} 
-                    className="w-20 h-24 object-cover border border-[#E8E2D9]"
+                    className="w-20 h-24 object-cover object-top border border-[#E8E2D9]"
                   />
 
                   {/* Item Details */}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { X, Heart, Trash2, ShoppingBag, ArrowRight } from 'lucide-react';
+import { getImageUrl } from '../../utils/image';
 
 export default function WishlistDrawer({ 
   isOpen, 
@@ -64,9 +65,9 @@ export default function WishlistDrawer({
                 >
                   {/* Image */}
                   <img 
-                    src={product.images[0]} 
+                    src={getImageUrl(product.images[0])} 
                     alt={product.name} 
-                    className="w-20 h-24 object-cover border border-[#E8E2D9] cursor-pointer"
+                    className="w-20 h-24 object-cover object-top border border-[#E8E2D9] cursor-pointer"
                     onClick={() => {
                       onClose();
                       onSelectProduct(product);

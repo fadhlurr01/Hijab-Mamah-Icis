@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Heart, Eye, ShoppingBag, Star } from 'lucide-react';
+import { getImageUrl } from '../utils/image';
 
 export default function ProductCard({ 
   product, 
@@ -18,7 +19,6 @@ export default function ProductCard({
     }).format(price);
   };
 
-  // Determine if secondary image exists and belongs to the same product path
   const hasValidSecondImage = product.images[1] && product.images[1].startsWith('/images/');
 
   return (
@@ -34,7 +34,7 @@ export default function ProductCard({
       >
         {/* Primary Authentic Product Image */}
         <img 
-          src={product.images[0]} 
+          src={getImageUrl(product.images[0])} 
           alt={product.name}
           className={`w-full h-full object-cover object-top transition-transform duration-700 ease-out ${
             isHovered ? 'scale-108 filter brightness-[1.02]' : 'scale-100 brightness-100'
@@ -44,7 +44,7 @@ export default function ProductCard({
         {/* Secondary Detail Image if authentic */}
         {hasValidSecondImage && (
           <img 
-            src={product.images[1]} 
+            src={getImageUrl(product.images[1])} 
             alt={`${product.name} Detail`}
             className={`absolute inset-0 w-full h-full object-cover object-top transition-all duration-700 ease-out ${
               isHovered ? 'opacity-100 scale-105' : 'opacity-0 scale-100'

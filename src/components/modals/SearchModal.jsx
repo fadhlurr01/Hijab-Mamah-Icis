@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Search, X, ArrowRight, Sparkles } from 'lucide-react';
+import { getImageUrl } from '../../utils/image';
 
 export default function SearchModal({ 
   isOpen, 
@@ -105,9 +106,9 @@ export default function SearchModal({
                     className="flex items-center space-x-3 p-2.5 bg-[#F8F6F2] border border-[#E8E2D9] hover:border-[#B08D67] cursor-pointer transition-all group"
                   >
                     <img 
-                      src={product.images[0]} 
+                      src={getImageUrl(product.images[0])} 
                       alt={product.name}
-                      className="w-14 h-16 object-cover border border-[#E8E2D9]"
+                      className="w-14 h-16 object-cover object-top border border-[#E8E2D9]"
                     />
                     <div className="flex-1 min-w-0">
                       <span className="text-[9px] font-sans tracking-wider uppercase text-[#B08D67] block">

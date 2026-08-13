@@ -3,6 +3,7 @@ import { ArrowRight, ShieldCheck, HeartHandshake, Sparkles, Feather, Award, Hear
 import { AnimatedScene, AnimatedStagger, AnimatedStaggerItem } from '../AnimatedScene';
 import { shopeeStoreUrl, whatsAppNumber, whatsAppDisplayNumber } from '../../data/products';
 import { ShopeeIcon } from '../Icons';
+import { getImageUrl } from '../../utils/image';
 
 export default function BrandStorySection() {
   return (
@@ -16,7 +17,7 @@ export default function BrandStorySection() {
           <AnimatedScene className="lg:col-span-6 relative">
             <div className="relative aspect-[4/5] overflow-hidden shadow-xl border border-[#E8E2D9]">
               <img 
-                src="/images/tulicia_tunik.png" 
+                src={getImageUrl('/images/tulicia_tunik.png')} 
                 alt="Hijab Mamah Icis Brand Portrait" 
                 className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
               />

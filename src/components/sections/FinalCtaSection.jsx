@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { AnimatedScene } from '../AnimatedScene';
 import { motion } from 'framer-motion';
+import { getImageUrl } from '../../utils/image';
 
 export default function FinalCtaSection({ onShopNow }) {
   return (
@@ -15,7 +16,7 @@ export default function FinalCtaSection({ onShopNow }) {
         className="absolute inset-0 z-0"
       >
         <img 
-          src="/images/florida.png" 
+          src={getImageUrl('/images/florida.png')} 
           alt="Mamah Icis Signature Style" 
           className="w-full h-full object-cover object-top filter brightness-90"
         />

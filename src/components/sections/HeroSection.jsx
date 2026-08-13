@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { getImageUrl } from '../../utils/image';
 
 export default function HeroSection({ onShopNow }) {
   return (
@@ -13,7 +14,7 @@ export default function HeroSection({ onShopNow }) {
         className="absolute inset-0 z-0"
       >
         <img 
-          src="/images/malaya_tunik.png" 
+          src={getImageUrl('/images/malaya_tunik.png')} 
           alt="Mamah Icis Modest Fashion Hero" 
           className="w-full h-full object-cover object-top"
         />

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, Heart, ShoppingBag, Send, Star, ShieldCheck, Truck, RotateCcw, Sparkles } from 'lucide-react';
+import { getImageUrl } from '../../utils/image';
 
 export default function ProductDetailModal({ 
   product, 
@@ -58,9 +59,9 @@ export default function ProductDetailModal({
           {/* Main Photo Display */}
           <div className="relative aspect-[4/5] w-full overflow-hidden bg-white border border-[#E8E2D9] mb-4">
             <img 
-              src={activeImage} 
+              src={getImageUrl(activeImage)} 
               alt={product.name} 
-              className="w-full h-full object-cover object-center transition-all duration-500"
+              className="w-full h-full object-cover object-top transition-all duration-500"
             />
             {product.badge && (
               <span className={`absolute top-3 left-3 ${product.badge === 'BEST SELLER' ? 'badge-gold' : 'badge-dark'}`}>
@@ -79,7 +80,7 @@ export default function ProductDetailModal({
                   activeImage === img ? 'border-[#B08D67] ring-2 ring-[#B08D67]/30' : 'border-[#E8E2D9] opacity-70 hover:opacity-100'
                 }`}
               >
-                <img src={img} alt="" className="w-full h-full object-cover" />
+                <img src={getImageUrl(img)} alt="" className="w-full h-full object-cover object-top" />
               </button>
             ))}
           </div>

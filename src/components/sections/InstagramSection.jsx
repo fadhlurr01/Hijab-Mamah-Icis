@@ -3,6 +3,7 @@ import { instagramPosts } from '../../data/products';
 import { Heart, MessageCircle, ExternalLink } from 'lucide-react';
 import { InstagramIcon } from '../Icons';
 import { AnimatedScene, AnimatedStagger, AnimatedStaggerItem } from '../AnimatedScene';
+import { getImageUrl } from '../../utils/image';
 
 export default function InstagramSection() {
   return (
@@ -41,7 +42,7 @@ export default function InstagramSection() {
                 className="group relative aspect-square overflow-hidden bg-[#1C1C1C] block border border-[#E8E2D9]"
               >
                 <img 
-                  src={post.image} 
+                  src={getImageUrl(post.image)} 
                   alt="Instagram @hijabmamahicis"
                   className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                 />

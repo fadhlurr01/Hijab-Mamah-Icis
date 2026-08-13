@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { AnimatedScene } from '../AnimatedScene';
 import { motion } from 'framer-motion';
+import { getImageUrl } from '../../utils/image';
 
 export default function EditorialBannerSection({ onDiscover }) {
   return (
@@ -15,7 +16,7 @@ export default function EditorialBannerSection({ onDiscover }) {
         className="absolute inset-0 z-0"
       >
         <img 
-          src="/images/oleta_silk.png" 
+          src={getImageUrl('/images/oleta_silk.png')} 
           alt="Timeless Modesty Editorial" 
           className="w-full h-full object-cover object-top filter brightness-90 hover:brightness-100 transition-all duration-1000"
         />

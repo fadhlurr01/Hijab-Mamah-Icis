@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { AnimatedScene, AnimatedStagger, AnimatedStaggerItem } from '../AnimatedScene';
+import { getImageUrl } from '../../utils/image';
 
 export default function CategorySection({ onSelectCategory }) {
   const categoryCards = [
@@ -59,7 +60,7 @@ export default function CategorySection({ onSelectCategory }) {
             >
               {/* Background Authentic Brand Image */}
               <img 
-                src={cat.image} 
+                src={getImageUrl(cat.image)} 
                 alt={cat.title}
                 className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-110 filter brightness-[0.88] group-hover:brightness-95"
               />
