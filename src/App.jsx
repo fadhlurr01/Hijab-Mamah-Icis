@@ -33,16 +33,9 @@ export default function App() {
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
-  // Cart & Wishlist State
-  const [cartItems, setCartItems] = useState([
-    {
-      ...products[0],
-      selectedColor: 'Champagne Gold',
-      selectedSize: '115 x 115 cm',
-      quantity: 1
-    }
-  ]);
-  const [wishlistIds, setWishlistIds] = useState(['hm-01', 'hm-03']);
+  // Cart & Wishlist State (Default 0 / Empty)
+  const [cartItems, setCartItems] = useState([]);
+  const [wishlistIds, setWishlistIds] = useState([]);
 
   // Handlers
   const handleSelectCategory = (category) => {

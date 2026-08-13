@@ -131,19 +131,26 @@ export default function Navbar({
             <Search size={20} strokeWidth={1.75} />
           </button>
 
+          {/* Wishlist Button with Dynamic Badge */}
           <button 
             onClick={onOpenWishlist}
             className="p-2 relative transition-transform duration-300 hover:scale-110 hover:text-[#B08D67]"
             title="Wishlist"
           >
-            <Heart size={20} strokeWidth={1.75} />
+            <Heart 
+              size={20} 
+              strokeWidth={1.75} 
+              fill={wishlistCount > 0 ? '#B08D67' : 'none'} 
+              className={wishlistCount > 0 ? 'text-[#B08D67]' : ''} 
+            />
             {wishlistCount > 0 && (
-              <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#B08D67] text-white text-[9px] font-bold rounded-full flex items-center justify-center animate-pulse">
+              <span className="absolute -top-1 -right-1 min-w-4 h-4 px-1 bg-[#B08D67] text-white text-[9px] font-bold rounded-full flex items-center justify-center shadow-xs transition-all duration-300 animate-scale-in">
                 {wishlistCount}
               </span>
             )}
           </button>
 
+          {/* Shopping Bag Button with Dynamic Badge */}
           <button 
             onClick={onOpenCart}
             className="p-2 relative transition-transform duration-300 hover:scale-110 hover:text-[#B08D67]"
@@ -151,7 +158,7 @@ export default function Navbar({
           >
             <ShoppingBag size={20} strokeWidth={1.75} />
             {cartCount > 0 && (
-              <span className="absolute -top-1 -right-1 w-4.5 h-4.5 bg-[#1C1C1C] text-white text-[9px] font-bold rounded-full flex items-center justify-center border border-[#D8C7B5]">
+              <span className="absolute -top-1 -right-1 min-w-4.5 h-4.5 px-1 bg-[#1C1C1C] text-white text-[9px] font-bold rounded-full flex items-center justify-center border border-[#D8C7B5] shadow-xs transition-all duration-300 animate-scale-in">
                 {cartCount}
               </span>
             )}
